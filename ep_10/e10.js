@@ -66,6 +66,7 @@ window.onload = function() {
 			gravity.setAngle(angle);
 			ship.gravity = gravity;
 		} else {
+			ship.velocity = vector.create(0, 0);
 			ship.gravity = vector.create(0, 0);
 		}
 
@@ -85,6 +86,12 @@ window.onload = function() {
 		context.lineTo(10,0);
 		context.moveTo(0,-5);
 		context.lineTo(-10,0);
+
+		if(thrusting) {
+			context.moveTo(0,0);
+			context.lineTo(0,5);
+		}
+
 		context.stroke();
 		context.restore();
 
